@@ -1,6 +1,6 @@
 const cors = require('cors');
 
-const whitelist = [ 'http://localhost:3000', 'https://f-look.herokuapp.com/' ];
+const whitelist = [ 'http://localhost:3000', 'https://f-look.herokuapp.com' ];
 
 const corsOptions = {
 	origin: (origin, callback) => {
