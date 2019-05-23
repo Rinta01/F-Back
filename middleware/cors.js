@@ -5,6 +5,7 @@ const corsOptions = {
 	allowedHeaders: 'Content-Type, Authorization',
 	methods: 'GET,POST,OPTIONS',
 	preflightContinue: true,
+	credentials: true,
 };
 
 const CORS = cors(corsOptions);
