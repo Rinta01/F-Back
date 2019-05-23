@@ -4,7 +4,7 @@ const whitelist = [ 'http://localhost:3000', 'https://f-look.herokuapp.com' ];
 
 const corsOptions = {
 	origin: (origin, callback) => {
-		if (!whitelist.includes(origin)) {
+		if (whitelist.includes(origin)) {
 			callback(null, true);
 		}
 		else {
