@@ -1,7 +1,16 @@
 const cors = require('cors');
 
+const whitelist = [ 'http://localhost:3000', 'https://f-look.herokuapp.com/' ];
+
 const corsOptions = {
-	origin: true,
+	origin: (origin, callback) => {
+		if (whitelist.includes(origin)) {
+			callback(null, true);
+		}
+		else {
+			callback(new Error('Not allowed by CORS'));
+		}
+	},
 	allowedHeaders: 'Content-Type, Authorization',
 	methods: 'GET,POST,OPTIONS',
 	preflightContinue: true,
