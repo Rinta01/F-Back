@@ -1,0 +1,34 @@
+{
+  "name": "f-back",
+  "version": "1.0.0",
+  "description": "back-end for f-look",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rinta01/F-Look.git"
+  },
+  "author": "me.rinta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rinta01/F-Look/issues"
+  },
+  "homepage": "https://github.com/Rinta01/F-Look",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "express-session": "^1.16.1",
+    "graphql": "^14.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
