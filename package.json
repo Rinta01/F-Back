@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"description": "back-end for f-look",
 	"main": "app.js",
+	"engines": {
+		"node": "8.10.0"
+	},
 	"scripts": {
 		"start": "node app.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -31,5 +34,6 @@
 		"nodemon": "^1.18.10",
 		"passport": "^0.4.0",
 		"passport-local": "^1.0.0"
-	}
+	},
+	"devDependencies": {}
 }
