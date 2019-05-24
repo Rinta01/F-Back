@@ -26,8 +26,8 @@ app.get('/test', function (req, res) {
 	res.redirect('/graphql');
 });
 
-// app.use(express.static('public'));
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({ secret: 'f-auth', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
