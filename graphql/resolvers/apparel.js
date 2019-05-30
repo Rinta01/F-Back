@@ -56,24 +56,26 @@ module.exports = {
 		}
 	},
 	addToWishlist: async ({ userId, itemId }) => {
-		const apparel = await Apparel.findById(itemId);
-		const user = await User.findById(userId);
-		const existingFavorite = user.wishlist.filter(e => {
-			return e._id.toString() === itemId;
-		});
-		if (apparel && user && !existingFavorite.length) {
-			user.wishlist.push(apparel.id);
-			await user.save();
-			console.log('ADDED TO FAV');
-			return { ...apparel._doc, id: apparel._id };
-		}
-		else if (apparel && existingFavorite) {
-			user.wishlist = user.wishlist.filter(w => w._id.toString() !== apparel._id.toString());
-			await user.save();
-			console.log('REMOVED FROM FAV');
-		}
-		else {
-			return {};
+		try {
+			const apparel = await Apparel.findById(itemId);
+			const user = await User.findById(userId);
+			const existingFavorite = user.wishlist.filter(e => {
+				return e._id.toString() === itemId;
+			});
+			if (apparel && user && !existingFavorite.length) {
+				user.wishlist.push(apparel.id);
+				await user.save();
+				console.log('ADDED TO FAV');
+				return { item: { ...apparel._doc, id: apparel._id }, status: 'ok' };
+			}
+			else if (apparel && existingFavorite) {
+				user.wishlist = user.wishlist.filter(w => w._id.toString() !== apparel._id.toString());
+				await user.save();
+				console.log('REMOVED FROM FAV');
+				return { item: { ...apparel._doc, id: apparel._id }, status: 'del' };
+			}
+		} catch (err) {
+			throw err;
 		}
 	},
 };

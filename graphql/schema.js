@@ -54,6 +54,10 @@ type Apparel {
     source: String!
     price: Int!
 }
+type FavApparel{
+    item: Apparel!
+    status: String!
+}
 input MaterialInput{
     name: String!
     share: Int!
@@ -102,7 +106,7 @@ type RootMutation {
     createUser(userInput: CreateUserInput): LoggedUser!
     editUser(editUserInput: EditUserInput): User!
     addApparel(apparelInput: ApparelInput): Apparel
-    addToWishlist(userId: String!, itemId: String!) : Apparel
+    addToWishlist(userId: String!, itemId: String!) : FavApparel!
 }
 schema {
     query: RootQuery
