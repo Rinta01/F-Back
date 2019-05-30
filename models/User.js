@@ -58,11 +58,10 @@ const UserSchema = new Schema({
 	},
 	favBrands: [
 		{
-			type: Schema.Types.ObjectId,
-			ref: 'Brand',
+			type: String,
 		},
 	],
-	wishList: [
+	wishlist: [
 		{
 			type: Schema.Types.ObjectId,
 			ref: 'Apparel',

@@ -29,7 +29,6 @@ const ApparelSchema = new Schema({
 		type: String,
 		required: [ true, 'An item must have a category' ],
 	},
-	//the most prevailed material
 	materials: [
 		{
 			name: {

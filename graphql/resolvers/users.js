@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
 const auth = require('./auth');
 const User = require('../../models/User');
+const Apparel = require('../../models/Apparel');
 
 module.exports = {
 	findUser: async ({ userId }) => {
@@ -12,7 +13,15 @@ module.exports = {
 				throw new Error('User not found!');
 			}
 		});
-		return user;
+		let fullWishlist = [];
+		if (user.wishlist) {
+			fullWishlist = user.wishlist.map(async a => {
+				foundItem = await Apparel.findById(a._id);
+				return { ...foundItem._doc, id: foundItem._id };
+			});
+		}
+		console.log({ ...user._doc, wishlist: fullWishlist });
+		return { ...user._doc, wishlist: fullWishlist, id: user._id };
 	},
 	allUsers: async (args, req) => {
 		if (!req.isAuth) {

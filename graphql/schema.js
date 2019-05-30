@@ -102,6 +102,7 @@ type RootMutation {
     createUser(userInput: CreateUserInput): LoggedUser!
     editUser(editUserInput: EditUserInput): User!
     addApparel(apparelInput: ApparelInput): Apparel
+    addToWishlist(userId: String!, itemId: String!) : Apparel
 }
 schema {
     query: RootQuery
